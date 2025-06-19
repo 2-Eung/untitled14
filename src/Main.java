@@ -1,30 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
-
-class Box {
-    public static <T> void displayArray(List<T> array) {
-        for(T element: array) {
-            System.out.println(element);
-        }
-    }
-}
 
 public class Main {
     public static void main(String[] args) {
-//        List<Integer> numbers = List.of(1, 2, 3, 4, 5); // 이 경우는 ArrayList 가 아니다.
-//        numbers.add(1);                                 // 이 경우 불변한녀석이어서 불가능
+        Object[] arr = new Integer[3]; // 배열은 공변이다. 그래서 상위타입으로 바뀐다.
+//        arr[1] = "Hello";   // 상위타입으로 바뀌엇기때문에 문자가 입력은된다.
+                            // 그러나 실행하면 런타임 오류가 발생한다. 불안정해진다.
+//        List<Object> arr = new ArrayList<Integer>();            // 제네릭은 불공변 이다. 컴파일오류발생
 
-        List<String> numbers = new ArrayList<>(List.of("1", "2", "3", "4", "5"));
-                                                          // 옳게 ArrayList 가 된녀석.
-        List<String> numberss = new ArrayList<>(Arrays.asList("1", "2", "3"));
-                                                          // 또는 이렇게
-        List<String> words = new ArrayList<>();
-        words.add("apple");
-        words.add("banana");
-        words.add("cherry");
-
-        Box.displayArray(numbers);
-        Box.displayArray(words);
+        List<? extends Number> arra = new ArrayList<Integer>(); // 제네릭에서 공변성을 부여하기위한 작업.
     }
 }
