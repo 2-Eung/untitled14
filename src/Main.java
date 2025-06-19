@@ -10,9 +10,7 @@ public class Main {
         fruitPrices.put("수박", 15920);
         fruitPrices.put("멜론", 10630);
 
-        System.out.println(fruitPrices.containsKey("사과"));  // contain 은 true/false 로 반환한다.
-        System.out.println(fruitPrices.containsKey("포도"));
-        System.out.println(fruitPrices.containsValue(17980));
-        System.out.println(fruitPrices.containsValue(9999));
+        System.out.println(fruitPrices.getOrDefault("사과", 500));
+        System.out.println(fruitPrices.getOrDefault("포도", 500));
     }
 }
